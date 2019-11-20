@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Dashboard from "./sample/Dashboard";
+import OldDashboard from "./sample/OldDashboard";
+import Dashboard from "./component/Dashboard"
 
 function App() {
   // return (
@@ -23,6 +24,7 @@ function App() {
   //   </div>
   // );
 
+  // return <OldDashboard/>
   return <Dashboard/>
 }
 
