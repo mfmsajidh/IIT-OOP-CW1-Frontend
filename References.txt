@@ -1,0 +1,5 @@
+1)  https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export
+2)  https://alligator.io/react/axios-react/
+3)  https://www.npmjs.com/package/axios
+4)  https://medium.com/how-to-react/simplest-way-to-use-axios-to-fetch-data-from-an-api-in-reactjs-cd9af9d7230
+5)
