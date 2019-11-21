@@ -2,4 +2,5 @@
 2)  https://alligator.io/react/axios-react/
 3)  https://www.npmjs.com/package/axios
 4)  https://medium.com/how-to-react/simplest-way-to-use-axios-to-fetch-data-from-an-api-in-reactjs-cd9af9d7230
-5)
+5)  https://hackernoon.com/should-i-use-promises-or-async-await-126ab5c98789
+6)
