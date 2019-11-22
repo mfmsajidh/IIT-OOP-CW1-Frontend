@@ -2,61 +2,75 @@ import React, {useState} from "react";
 import Title from "./Title";
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardTimePicker,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
+import 'date-fns';
+import {MuiPickersUtilsProvider, KeyboardDatePicker} from '@material-ui/pickers';
+import Fab from "@material-ui/core/Fab";
+import SearchIcon from '@material-ui/icons/Search';
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import Button from "@material-ui/core/Button";
+
+const useStyles = makeStyles(theme => ({
+    button: {
+        margin: theme.spacing(1),
+        padding: '0px 100px'
+    },
+    input: {
+        display: 'none',
+    },
+}));
 
 export default function Schedule() {
-    // The first commit of Material-UI
-    const [selectedDate, setSelectedDate] = useState(new Date('2014-08-18T21:11:54'));
+    const classes = useStyles();
+    const [fromDate, setFromDate] = useState(new Date());
+    const [toDate, setToDate] = useState(new Date());
 
-    const handleDateChange = date => {
-        setSelectedDate(date);
+    const handleFromDateChange = (fromDate) => {
+        setFromDate(fromDate)
+    };
+
+    const handleToDateChange = (toDate) => {
+        setToDate(toDate)
     };
 
     return (
         <>
             <Title>Find deals on vehicle rentals, with cars and much more...</Title>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <Grid container justify="space-around">
+                <Grid container justify="space-evenly">
                     <KeyboardDatePicker
+                        autoOk
                         disableToolbar
                         variant="inline"
                         format="MM/dd/yyyy"
                         margin="normal"
                         id="date-picker-inline"
-                        label="Date picker inline"
-                        value={selectedDate}
-                        onChange={handleDateChange}
+                        label="Schedule from"
+                        value={fromDate}
+                        onChange={handleFromDateChange}
                         KeyboardButtonProps={{
                             'aria-label': 'change date',
                         }}
                     />
                     <KeyboardDatePicker
+                        autoOk
+                        disableToolbar
+                        variant={"inline"}
                         margin="normal"
                         id="date-picker-dialog"
-                        label="Date picker dialog"
+                        label="Schedule upto"
                         format="MM/dd/yyyy"
-                        value={selectedDate}
-                        onChange={handleDateChange}
+                        value={toDate}
+                        onChange={handleToDateChange}
                         KeyboardButtonProps={{
                             'aria-label': 'change date',
                         }}
                     />
-                    <KeyboardTimePicker
-                        margin="normal"
-                        id="time-picker"
-                        label="Time picker"
-                        value={selectedDate}
-                        onChange={handleDateChange}
-                        KeyboardButtonProps={{
-                            'aria-label': 'change time',
-                        }}
-                    />
+                    <Button variant="contained" color="primary" className={classes.button}>
+                        Search vehicles
+                    </Button>
                 </Grid>
             </MuiPickersUtilsProvider>
+
         </>
     )
 }
