@@ -3,4 +3,6 @@
 3)  https://www.npmjs.com/package/axios
 4)  https://medium.com/how-to-react/simplest-way-to-use-axios-to-fetch-data-from-an-api-in-reactjs-cd9af9d7230
 5)  https://hackernoon.com/should-i-use-promises-or-async-await-126ab5c98789
-6)
+6)  https://www.w3schools.com/js/js_arrow_function.asp
+7)  https://itnext.io/add-state-and-lifecycle-methods-to-function-components-with-react-hooks-8e2bdc44d43d
+8)

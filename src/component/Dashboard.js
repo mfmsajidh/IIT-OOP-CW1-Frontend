@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -22,6 +22,7 @@ import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import Copyright from "./Copyright";
+import {ListItemText} from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -105,14 +106,29 @@ const useStyles = makeStyles(theme => (
     },
 }));
 
-export default function Dashboard() {
+export const Dashboard = () => {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = useState(true);
+    const [dashboardName, setDashboardName] = useState("");
+    const [drawerName, setDrawerName] = useState("Booking.com");
+
+    useEffect(() => {
+        console.log('Open', dashboardName);
+        console.log('Open drawerName', drawerName);
+        // setDashboardName("Booking.com Dashboard");
+        console.log('das', dashboardName);
+        console.log('das drawerName', drawerName);
+    }, []);
+
     const handleDrawerOpen = () => {
         setOpen(true);
+        setDashboardName("");
+        setDrawerName("Booking.com");
     };
     const handleDrawerClose = () => {
         setOpen(false);
+        setDashboardName("Dashboard");
+        setDrawerName("");
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -131,7 +147,8 @@ export default function Dashboard() {
                         <MenuIcon />
                     </IconButton>
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        Dashboard
+                        {/*Dashboard*/}
+                        {dashboardName}
                     </Typography>
                     <IconButton color="inherit">
                         <Badge badgeContent={4} color="secondary">
@@ -148,6 +165,11 @@ export default function Dashboard() {
                 open={open}
             >
                 <div className={classes.toolbarIcon}>
+                    <List>
+                        <ListItemText>
+                            <Typography variant={"h6"}>{drawerName}</Typography>
+                        </ListItemText>
+                    </List>
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon />
                     </IconButton>
