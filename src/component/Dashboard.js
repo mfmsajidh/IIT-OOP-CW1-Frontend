@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
@@ -24,6 +23,7 @@ import Orders from './Orders';
 import Copyright from "./Copyright";
 import {ListItemText} from "@material-ui/core";
 import {useStyles} from "../style/DashboardStyle";
+import Searchbar from "./Schedule";
 
 export const Dashboard = () => {
     const classes = useStyles();
@@ -104,7 +104,7 @@ export const Dashboard = () => {
 
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                                <Orders />
+                                <Searchbar />
                             </Paper>
                         </Grid>
 
