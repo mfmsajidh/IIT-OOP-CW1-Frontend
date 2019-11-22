@@ -7,7 +7,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Title from './Title';
+import OldTitle from './OldTitle';
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -28,11 +28,11 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Orders() {
+export default function OldOrders() {
     const classes = useStyles();
     return (
         <React.Fragment>
-            <Title>Recent Orders</Title>
+            <OldTitle>Recent Orders</OldTitle>
             <Table size="small">
                 <TableHead>
                     <TableRow>

@@ -17,15 +17,16 @@ import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from '../sample/listItems';
-import Chart from '../sample/Chart';
-import Deposits from '../sample/Deposits';
-import Orders from '../sample/Orders';
+import { mainListItems, secondaryListItems } from './listItems';
+import Chart from './Chart';
+import Deposits from './Deposits';
+import Orders from './Orders';
 import Copyright from "./Copyright";
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => (
+    {
     root: {
         display: 'flex',
     },

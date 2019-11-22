@@ -3,7 +3,7 @@ import React from 'react';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Title from './Title';
+import OldTitle from './OldTitle';
 
 const useStyles = makeStyles({
     depositContext: {
@@ -11,11 +11,11 @@ const useStyles = makeStyles({
     },
 });
 
-export default function Deposits() {
+export default function OldDeposits() {
     const classes = useStyles();
     return (
         <React.Fragment>
-            <Title>Recent Deposits</Title>
+            <OldTitle>Recent Deposits</OldTitle>
             <Typography component="p" variant="h4">
                 $3,024.00
             </Typography>
