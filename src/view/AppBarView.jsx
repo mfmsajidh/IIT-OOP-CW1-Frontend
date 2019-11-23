@@ -3,7 +3,7 @@ import AppBar from "@material-ui/core/AppBar/AppBar";
 import clsx from "clsx";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import MenuIcon from '@material-ui/icons/Menu';
 import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge/Badge";
 import {useStyles} from "../style/AppBarStyle";
