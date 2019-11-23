@@ -23,7 +23,7 @@ export default function OldDeposits() {
                 on 15 March, 2019
             </Typography>
             <div>
-                <Link color="primary" href="javascript:;">
+                <Link color="primary" href="#">
                     View balance
                 </Link>
             </div>

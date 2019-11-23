@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -31,13 +31,13 @@ export const Dashboard = () => {
     const [dashboardName, setDashboardName] = useState("");
     const [drawerName, setDrawerName] = useState("Booking.com");
 
-    useEffect(() => {
-        console.log('Open', dashboardName);
-        console.log('Open drawerName', drawerName);
-        // setDashboardName("Booking.com Dashboard");
-        console.log('das', dashboardName);
-        console.log('das drawerName', drawerName);
-    }, []);
+    // useEffect(() => {
+    //     console.log('Open', dashboardName);
+    //     console.log('Open drawerName', drawerName);
+    //     // setDashboardName("Booking.com Dashboard");
+    //     console.log('das', dashboardName);
+    //     console.log('das drawerName', drawerName);
+    // }, []);
 
     const handleDrawerOpen = () => {
         setOpen(true);

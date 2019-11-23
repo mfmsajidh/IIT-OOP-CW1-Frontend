@@ -6,4 +6,6 @@
 6)  https://www.w3schools.com/js/js_arrow_function.asp
 7)  https://itnext.io/add-state-and-lifecycle-methods-to-function-components-with-react-hooks-8e2bdc44d43d
 8)  https://material-ui-pickers.dev/demo/datepicker
-9)
+9)  https://medium.com/trabe/passing-callbacks-down-with-react-hooks-4723c4652aff
+10) https://itnext.io/passing-data-between-sibling-components-in-react-using-context-api-and-react-hooks-fce60f12629a
+11)
