@@ -42,7 +42,7 @@ export const ScheduleView = (props) => {
                             'aria-label': 'change date',
                         }}
                     />
-                    <Button variant="contained" color="primary" className={classes.button}>
+                    <Button variant="contained" color="primary" className={classes.button} onClick={props.searchVehicles}>
                         Search vehicles
                     </Button>
                 </Grid>

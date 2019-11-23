@@ -2,6 +2,10 @@ import React, {useState} from "react";
 import 'date-fns';
 import {ScheduleView} from "../view/ScheduleView";
 
+const searchVehicles = () => {
+    console.log('SEARCHED',);
+};
+
 export default function Schedule() {
 
     const [fromDate, setFromDate] = useState(new Date());
@@ -21,6 +25,7 @@ export default function Schedule() {
             toDate={toDate}
             handleToDateChange={handleToDateChange}
             handleFromDateChange={handleFromDateChange}
+            searchVehicles={searchVehicles}
         />
     )
 }

@@ -23,7 +23,7 @@ import Orders from './Orders';
 import Copyright from "./Copyright";
 import {ListItemText} from "@material-ui/core";
 import {useStyles} from "../style/DashboardStyle";
-import Searchbar from "./Schedule";
+import Schedule from "./Schedule";
 
 export const Dashboard = () => {
     const classes = useStyles();
@@ -104,7 +104,7 @@ export const Dashboard = () => {
 
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                                <Searchbar />
+                                <Schedule />
                             </Paper>
                         </Grid>
 
