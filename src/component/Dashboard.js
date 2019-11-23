@@ -24,9 +24,12 @@ import Copyright from "./Copyright";
 import {ListItemText} from "@material-ui/core";
 import {useStyles} from "../style/DashboardStyle";
 import Schedule from "./Schedule";
+import AppBarView from "../view/AppBarView";
 
 export const Dashboard = () => {
+
     const classes = useStyles();
+
     const [open, setOpen] = useState(true);
     const [dashboardName, setDashboardName] = useState("");
     const [drawerName, setDrawerName] = useState("Booking.com");
@@ -49,32 +52,17 @@ export const Dashboard = () => {
         setDashboardName("Dashboard");
         setDrawerName("");
     };
+
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-                <Toolbar className={classes.toolbar}>
-                    <IconButton
-                        edge="start"
-                        color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        {dashboardName}
-                    </Typography>
-                    <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                            <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
-                </Toolbar>
-            </AppBar>
+            <AppBarView
+                handleDrawerOpen={handleDrawerOpen}
+                dashboardName={dashboardName}
+                open = {open}
+            />
             <Drawer
                 variant="permanent"
                 classes={{
