@@ -5,7 +5,7 @@ import List from "@material-ui/core/List";
 import {ListItemText} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import ChevronLeftIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Divider from "@material-ui/core/Divider";
 import {mainListItems, secondaryListItems} from "../component/ListItems";
 import {useStyles} from "../style/DrawerStyle";
@@ -16,17 +16,17 @@ export default function (props) {
         <Drawer
             variant="permanent"
             classes={{
-                paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+                paper: clsx(classes.drawerPaper, !props.open && classes.drawerPaperClose),
             }}
-            open={open}
+            open={props.open}
         >
             <div className={classes.toolbarIcon}>
                 <List>
                     <ListItemText>
-                        <Typography variant={"h6"}>{drawerName}</Typography>
+                        <Typography variant={"h6"}>{props.drawerName}</Typography>
                     </ListItemText>
                 </List>
-                <IconButton onClick={handleDrawerClose}>
+                <IconButton onClick={props.handleDrawerClose}>
                     <ChevronLeftIcon />
                 </IconButton>
             </div>
