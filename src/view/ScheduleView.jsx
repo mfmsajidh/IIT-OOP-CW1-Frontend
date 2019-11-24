@@ -21,7 +21,7 @@ export const ScheduleView = (props) => {
                         format="MM/dd/yyyy"
                         margin="normal"
                         id="date-picker-inline"
-                        label="Schedule from"
+                        label="Pickup Date"
                         value={props.fromDate}
                         onChange={props.handleFromDateChange}
                         KeyboardButtonProps={{
@@ -34,7 +34,7 @@ export const ScheduleView = (props) => {
                         variant={"inline"}
                         margin="normal"
                         id="date-picker-dialog"
-                        label="Schedule upto"
+                        label="Dropoff Date"
                         format="MM/dd/yyyy"
                         value={props.toDate}
                         onChange={props.handleToDateChange}
