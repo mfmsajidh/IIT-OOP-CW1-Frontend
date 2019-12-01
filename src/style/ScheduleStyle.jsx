@@ -2,8 +2,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 
 export const useStyles = makeStyles(theme => ({
     button: {
-        margin: theme.spacing(1),
-        padding: '0px 80px'
+        margin: theme.spacing(2),
+        minWidth: 200
     },
     input: {
         display: 'none',
@@ -13,5 +13,12 @@ export const useStyles = makeStyles(theme => ({
         display: 'flex',
         overflow: 'auto',
         flexDirection: 'column',
+    },
+    formControl: {
+        margin: theme.spacing(2),
+        minWidth: 200,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
     }
 }));

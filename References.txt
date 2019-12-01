@@ -11,4 +11,5 @@
 11) https://github.com/mbrn/material-table
 12) https://stackoverflow.com/questions/49162311/react-difference-between-route-exact-path-and-route-path
 13) https://github.com/mbrn/material-table/issues/1293
-14)
+14) https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+15)
