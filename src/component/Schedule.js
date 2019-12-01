@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import 'date-fns';
 import {ScheduleView} from "../view/ScheduleView";
+import axios from "axios";
 
 const searchVehicles = () => {
     console.log('SEARCHED',);
+    axios.get("http://localhost:8080/vehicles").then(response => console.log(response.data))
 };
 
 export default function Schedule() {
