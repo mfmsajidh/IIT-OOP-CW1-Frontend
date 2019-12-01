@@ -8,4 +8,10 @@ export const useStyles = makeStyles(theme => ({
     input: {
         display: 'none',
     },
+    paper: {
+        padding: theme.spacing(2),
+        display: 'flex',
+        overflow: 'auto',
+        flexDirection: 'column',
+    }
 }));

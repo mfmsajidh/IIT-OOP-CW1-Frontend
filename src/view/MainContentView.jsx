@@ -21,16 +21,8 @@ export default function () {
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={3}>
 
-                    <Grid item xs={12}>
-                        <Paper className={classes.paper}>
-                            <Schedule />
-                        </Paper>
-                    </Grid>
-
-                    {/* Recent Orders */}
-                    <Grid item xs={12}>
-                        <VehicleTable />
-                    </Grid>
+                    {/* Search for vehicles */}
+                    <Schedule />
 
                     {/* Recent Orders */}
                     <Grid item xs={12}>
