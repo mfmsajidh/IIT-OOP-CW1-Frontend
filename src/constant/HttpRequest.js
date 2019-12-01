@@ -6,3 +6,6 @@ export const PORT_NUMBER = ":8080";
 export const VEHICLE = "/vehicle";
 export const GET_CARS = "/CAR";
 export const GET_MOTORBIKES = "/MOTORBIKE";
+
+// Schedule API
+export const SCHEDULE_VEHICLE = "/scheduleVehicle";

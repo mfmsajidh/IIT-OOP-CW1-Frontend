@@ -10,7 +10,6 @@ import Box from "@material-ui/core/Box";
 import Copyright from "../component/Copyright";
 import {useStyles} from "../style/MainContentStyle";
 import clsx from "clsx";
-import VehicleTable from "../component/VehicleTable";
 
 export default function () {
     const classes = useStyles();
