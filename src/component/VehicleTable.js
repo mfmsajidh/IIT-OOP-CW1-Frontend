@@ -28,8 +28,8 @@ export const VehicleTable = (props) => {
                 title: 'Is A/C Available',
                 field: 'airConditioning',
                 lookup: {
-                    Yes: 'Yes',
-                    No: 'No'
+                    YES: 'Yes',
+                    NO: 'No'
                 }
             }
         ]
