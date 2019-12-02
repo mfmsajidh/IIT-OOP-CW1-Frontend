@@ -39,7 +39,7 @@ export const VehicleTable = (props) => {
             <MaterialTable
                 title={
                     <Title>
-                        The Available { props.searchVehicleType === "Car" ? <span>Cars</span> : <span>Motorbikes</span> }
+                        All Available { props.searchVehicleType === "Car" ? <span>Cars</span> : <span>Motorbikes</span> }
                         <span> between </span>
                         {format(props.fromDate, 'dd/MM/yyyy')} to {format(props.toDate, 'dd/MM/yyyy')}
                     </Title>
@@ -64,18 +64,32 @@ export const VehicleTable = (props) => {
                     }
                 ]}
                 detailPanel={rowData => {
-                    return (
-                        <div
-                            style={{
-                                fontSize: 100,
-                                textAlign: 'center',
-                                color: 'white',
-                                backgroundColor: '#43A047',
-                            }}
-                        >
-                            {rowData.numberPlate}
-                        </div>
-                    )
+                    if (rowData.type === "CAR") {
+                        return (
+                            <iframe
+                                title="Rolce Royce"
+                                width="100%"
+                                height="315"
+                                src="https://www.youtube.com/embed/o896yqbHUxc"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        )
+                    } else {
+                        return (
+                            <iframe
+                                title="Harley Davidson"
+                                width="100%"
+                                height="315"
+                                src="https://www.youtube.com/embed/OGOsyM_Kifk"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        )
+                    }
+
                 }}
                 onRowClick={(event, rowData, togglePanel) => togglePanel()}
                 options={{

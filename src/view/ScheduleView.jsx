@@ -12,7 +12,6 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Typography from "@material-ui/core/Typography";
 
-// export const ScheduleView = (fromDate, toDate, handleFromDateChange, handleToDateChange) => {
 export const ScheduleView = (props) => {
     const classes = useStyles();
 

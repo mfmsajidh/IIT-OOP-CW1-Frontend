@@ -23,7 +23,7 @@ export const useStyles = makeStyles(theme => (
         }),
     },
     menuButton: {
-        marginRight: 36,
+        marginRight: theme.spacing(2),
     },
     menuButtonHidden: {
         display: 'none',

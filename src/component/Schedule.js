@@ -4,7 +4,7 @@ import {ScheduleView} from "../view/ScheduleView";
 import axios from "axios";
 import {VehicleTable} from "./VehicleTable";
 import {GET_CARS, GET_MOTORBIKES, IP_ADDRESS, PORT_NUMBER, SCHEDULE_VEHICLE, VEHICLE} from "../constant/HttpRequest";
-import {format} from "date-fns";
+import {customer} from "../constant/Customer"
 
 export default function Schedule() {
 
@@ -67,16 +67,15 @@ export default function Schedule() {
     };
 
     const handleBooking = (id) => {
-        console.log('BOOKED',id);
-        axios.post(IP_ADDRESS + PORT_NUMBER + SCHEDULE_VEHICLE, {
+        axios.post(IP_ADDRESS + PORT_NUMBER + SCHEDULE_VEHICLE,{
             'pickUpDate': fromDate,
             'dropOffDate': toDate,
-            'customerId': "5de415e6eab1e67b500082d6",
-            'vehicleId': id
+            'customer_id': customer._id,
+            'vehicle_id': id
         }
         ).then(response => {
             console.log('POST', response);
-        }) .catch(error => {
+        }).catch(error => {
             console.log('POST ERROR', error.response);
         })
     };
