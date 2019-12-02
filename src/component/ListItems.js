@@ -5,7 +5,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 
 export const mainListItems = (
     <>
@@ -13,13 +12,7 @@ export const mainListItems = (
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <EmojiTransportationIcon />
-            </ListItemIcon>
-            <ListItemText primary="All Vehicles" />
+            <ListItemText primary="Home" />
         </ListItem>
     </>
 );
@@ -27,12 +20,12 @@ export const mainListItems = (
 
 export const secondaryListItems = (
     <div>
-        <ListSubheader inset>Saved reports</ListSubheader>
+        <ListSubheader inset>Coming Soon</ListSubheader>
         <ListItem button>
             <ListItemIcon>
                 <AssignmentIcon />
             </ListItemIcon>
-            <ListItemText primary="Current month" />
+            <ListItemText primary="Reports" />
         </ListItem>
     </div>
 );

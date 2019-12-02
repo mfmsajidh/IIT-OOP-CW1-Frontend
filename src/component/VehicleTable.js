@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import MaterialTable from 'material-table';
 import Title from "./Title";
 import Grid from "@material-ui/core/Grid";
-import {format} from "date-fns";
 import {VEHICLE_TYPE} from "../constant/VehicleTypeConstant";
 
 export const VehicleTable = (props) => {
@@ -58,8 +57,6 @@ export const VehicleTable = (props) => {
                 title={
                     <Title>
                         All Available { props.searchVehicleType === VEHICLE_TYPE.CAR ? <span>Cars</span> : <span>Motorbikes</span> }
-                        <span> between </span>
-                        {format(props.fromDate, 'dd/MM/yyyy')} to {format(props.toDate, 'dd/MM/yyyy')}
                     </Title>
                 }
                 columns={props.searchVehicleType === VEHICLE_TYPE.CAR ?

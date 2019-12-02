@@ -12,9 +12,22 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Typography from "@material-ui/core/Typography";
 import {VEHICLE_TYPE} from "../constant/VehicleTypeConstant";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+const useStylesProgress = makeStyles(theme => ({
+    root: {
+        width: '100%',
+        '& > * + *': {
+            marginTop: theme.spacing(2),
+        },
+    },
+}));
+
 
 export const ScheduleView = (props) => {
     const classes = useStyles();
+    const classesProgress = useStylesProgress();
 
     const inputLabel = useRef(null);
     const [labelWidth, setLabelWidth] = useState(0);
@@ -84,9 +97,17 @@ export const ScheduleView = (props) => {
                     </Grid>
                     <Grid container justify="space-evenly">
                         {
-                            <Typography variant="button" display="block" gutterBottom color={"secondary"}>
-                                {props.errorMessage!=null ? props.errorMessage : null}
-                            </Typography>
+                            props.errorMessage!=null ?
+                                <Typography variant="button" display="block" gutterBottom color={"secondary"}>
+                                    {props.errorMessage}
+                                </Typography> : null
+                        }
+                        {
+                            props.isLoading ? (
+                                <div className={classesProgress.root}>
+                                    <LinearProgress />
+                                </div>
+                            ) : null
                         }
                     </Grid>
                 </Paper>

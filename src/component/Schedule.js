@@ -4,13 +4,10 @@ import {ScheduleView} from "../view/ScheduleView";
 import axios from "axios";
 import {VehicleTable} from "./VehicleTable";
 import {
-    GET_CARS,
-    GET_MOTORBIKES,
     IP_ADDRESS,
     PORT_NUMBER,
     SCHEDULE_VEHICLE,
     SEARCH_VEHICLES,
-    VEHICLE
 } from "../constant/HttpRequest";
 import {CUSTOMER} from "../constant/CUSTOMER";
 
@@ -22,6 +19,7 @@ export default function Schedule() {
     const [searchedForVehicles, setSearchedForVehicles] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
     const [vehicleDetails, setVehicleDetails] = useState();
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleFromDateChange = (fromDate) => {
         setFromDate(fromDate)
@@ -41,6 +39,8 @@ export default function Schedule() {
     };
 
     const handleSearchForVehicles = () => {
+
+        setIsLoading(true);
         const todayDate = new Date(format(new Date(), 'dd/MM/yyyy'));
         const startDate = new Date(format(fromDate, 'dd/MM/yyyy'));
         const endDate = new Date(format(toDate, 'dd/MM/yyyy'));
@@ -56,15 +56,17 @@ export default function Schedule() {
                         }
                     })
                         .then(response => {
-                            console.log(response.data);
+                            setIsLoading(false);
                             setVehicleDetails(response.data);
                             setSearchedForVehicles(true);
                         })
                         .catch(error => {
+                            setIsLoading(false);
                             setErrorMessage(error.toString())
                         })
                 ) : setErrorMessage("Please select a vehicle type")
         ) : setErrorMessage("Please select a valid date range");
+        setIsLoading(false);
     };
 
     const handleResetSearch = () => {
@@ -72,6 +74,7 @@ export default function Schedule() {
         setVehicleDetails(null);
         setErrorMessage(null);
         setSearchVehicleType("");
+        setIsLoading(false);
     };
 
     const handleBooking = (id) => {
@@ -83,6 +86,7 @@ export default function Schedule() {
         }
         ).then(response => {
             console.log('POST', response);
+            handleResetSearch();
         }).catch(error => {
             console.log('POST ERROR', error.response);
         })
@@ -104,6 +108,7 @@ export default function Schedule() {
                 toDate={toDate}
                 searchVehicleType={searchVehicleType}
                 errorMessage={errorMessage}
+                isLoading={isLoading}
                 handleToDateChange={handleToDateChange}
                 handleFromDateChange={handleFromDateChange}
                 handleSearchVehicleType={handleSearchVehicleType}
