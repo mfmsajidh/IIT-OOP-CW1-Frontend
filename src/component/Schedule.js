@@ -1,10 +1,18 @@
 import React, {useState} from "react";
-import 'date-fns';
+import {format} from 'date-fns';
 import {ScheduleView} from "../view/ScheduleView";
 import axios from "axios";
 import {VehicleTable} from "./VehicleTable";
-import {GET_CARS, GET_MOTORBIKES, IP_ADDRESS, PORT_NUMBER, SCHEDULE_VEHICLE, VEHICLE} from "../constant/HttpRequest";
-import {customer} from "../constant/Customer"
+import {
+    GET_CARS,
+    GET_MOTORBIKES,
+    IP_ADDRESS,
+    PORT_NUMBER,
+    SCHEDULE_VEHICLE,
+    SEARCH_VEHICLES,
+    VEHICLE
+} from "../constant/HttpRequest";
+import {CUSTOMER} from "../constant/CUSTOMER";
 
 export default function Schedule() {
 
@@ -35,27 +43,21 @@ export default function Schedule() {
     const handleSearchForVehicles = () => {
         searchVehicleType !== "" ?
             (
-                searchVehicleType === "Car" ? (
-                    axios.get(IP_ADDRESS + PORT_NUMBER + VEHICLE + GET_CARS)
-                        .then(response => {
-                            console.log(response.data);
-                            setVehicleDetails(response.data);
-                            setSearchedForVehicles(true);
-                        })
-                        .catch(error => {
-                            setErrorMessage(error.toString())
-                        })
-                ) : (
-                    axios.get(IP_ADDRESS + PORT_NUMBER + VEHICLE + GET_MOTORBIKES)
-                        .then(response => {
-                            console.log(response.data);
-                            setVehicleDetails(response.data);
-                            setSearchedForVehicles(true);
-                        })
-                        .catch(error => {
-                            setErrorMessage(error.toString())
-                        })
-                )
+                axios.get(IP_ADDRESS + PORT_NUMBER + SEARCH_VEHICLES,{
+                    params: {
+                        'fromDate': format(fromDate, 'dd/MM/yyyy'),
+                        'toDate': format(toDate, 'dd/MM/yyyy'),
+                        'vehicleType': searchVehicleType
+                    }
+                })
+                    .then(response => {
+                        console.log(response.data);
+                        setVehicleDetails(response.data);
+                        setSearchedForVehicles(true);
+                    })
+                    .catch(error => {
+                        setErrorMessage(error.toString())
+                    })
             ) : setErrorMessage("Please select the vehicle type");
     };
 
@@ -70,7 +72,7 @@ export default function Schedule() {
         axios.post(IP_ADDRESS + PORT_NUMBER + SCHEDULE_VEHICLE,{
             'pickUpDate': fromDate,
             'dropOffDate': toDate,
-            'customer_id': customer._id,
+            'customer_id': CUSTOMER._id,
             'vehicle_id': id
         }
         ).then(response => {

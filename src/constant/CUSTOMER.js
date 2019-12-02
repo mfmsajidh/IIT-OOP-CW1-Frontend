@@ -1,4 +1,4 @@
-export const customer = {
+export const CUSTOMER = {
     _id: "5de489db05817a68f5e3ea43",
     name: "Sajidh",
     nicNumber: "188877411220",

@@ -9,3 +9,4 @@ export const GET_MOTORBIKES = "/MOTORBIKE";
 
 // Schedule API
 export const SCHEDULE_VEHICLE = "/scheduleVehicle";
+export const SEARCH_VEHICLES = "/searchVehicles";

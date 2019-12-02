@@ -3,6 +3,7 @@ import MaterialTable from 'material-table';
 import Title from "./Title";
 import Grid from "@material-ui/core/Grid";
 import {format} from "date-fns";
+import {VEHICLE_TYPE} from "../constant/VehicleTypeConstant";
 
 export const VehicleTable = (props) => {
     const [vehicleDetails] = useState({
@@ -39,12 +40,12 @@ export const VehicleTable = (props) => {
             <MaterialTable
                 title={
                     <Title>
-                        All Available { props.searchVehicleType === "Car" ? <span>Cars</span> : <span>Motorbikes</span> }
+                        All Available { props.searchVehicleType === VEHICLE_TYPE.CAR ? <span>Cars</span> : <span>Motorbikes</span> }
                         <span> between </span>
                         {format(props.fromDate, 'dd/MM/yyyy')} to {format(props.toDate, 'dd/MM/yyyy')}
                     </Title>
                 }
-                columns={props.searchVehicleType === "Car" ?
+                columns={props.searchVehicleType === VEHICLE_TYPE.CAR ?
                     vehicleDetails.commonDetails.concat(vehicleDetails.carDetails)
                     :
                     vehicleDetails.commonDetails.concat(vehicleDetails.motorbikeDetails)
@@ -64,7 +65,7 @@ export const VehicleTable = (props) => {
                     }
                 ]}
                 detailPanel={rowData => {
-                    if (rowData.type === "CAR") {
+                    if (rowData.type === VEHICLE_TYPE.CAR) {
                         return (
                             <iframe
                                 title="Rolce Royce"

@@ -11,6 +11,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Typography from "@material-ui/core/Typography";
+import {VEHICLE_TYPE} from "../constant/VehicleTypeConstant";
 
 export const ScheduleView = (props) => {
     const classes = useStyles();
@@ -73,8 +74,8 @@ export const ScheduleView = (props) => {
                                 <MenuItem value="">
                                     <em>Select A Vehicle Type</em>
                                 </MenuItem>
-                                <MenuItem value={"Car"}>Car</MenuItem>
-                                <MenuItem value={"Motorbike"}>Motorbike</MenuItem>
+                                <MenuItem value={VEHICLE_TYPE.CAR}>Car</MenuItem>
+                                <MenuItem value={VEHICLE_TYPE.MOTORBIKE}>Motorbike</MenuItem>
                             </Select>
                         </FormControl>
                         <Button variant="contained" color="primary" className={classes.button} onClick={props.handleSearchForVehicles}>
