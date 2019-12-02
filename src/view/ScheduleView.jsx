@@ -47,7 +47,7 @@ export const ScheduleView = (props) => {
                                 disableToolbar
                                 variant="inline"
                                 inputVariant="outlined"
-                                format="MM/dd/yyyy"
+                                format="dd/MM/yyyy"
                                 margin="normal"
                                 id="date-picker-inline"
                                 label="Pickup Date"
@@ -56,6 +56,7 @@ export const ScheduleView = (props) => {
                                 KeyboardButtonProps={{
                                     'aria-label': 'change date',
                                 }}
+                                minDate={new Date()}
                             />
                             <KeyboardDatePicker
                                 autoOk
@@ -65,12 +66,13 @@ export const ScheduleView = (props) => {
                                 margin="normal"
                                 id="date-picker-dialog"
                                 label="Dropoff Date"
-                                format="MM/dd/yyyy"
+                                format="dd/MM/yyyy"
                                 value={props.toDate}
                                 onChange={props.handleToDateChange}
                                 KeyboardButtonProps={{
                                     'aria-label': 'change date',
                                 }}
+                                minDate={new Date()}
                             />
                         </MuiPickersUtilsProvider>
                         <FormControl variant="outlined" className={classes.formControl} required>

@@ -41,11 +41,13 @@ export default function Schedule() {
     const handleSearchForVehicles = () => {
 
         setIsLoading(true);
-        const todayDate = new Date(format(new Date(), 'dd/MM/yyyy'));
-        const startDate = new Date(format(fromDate, 'dd/MM/yyyy'));
-        const endDate = new Date(format(toDate, 'dd/MM/yyyy'));
 
-        startDate<=endDate && startDate>=todayDate ? (
+        console.log('startDate',fromDate);
+        console.log('endDate',toDate);
+
+        if (fromDate>toDate) {
+            setErrorMessage("Enter a valid date range");
+        } else {
             searchVehicleType !== "" ?
                 (
                     axios.get(IP_ADDRESS + PORT_NUMBER + SEARCH_VEHICLES, {
@@ -65,7 +67,7 @@ export default function Schedule() {
                             setErrorMessage(error.toString())
                         })
                 ) : setErrorMessage("Please select a vehicle type")
-        ) : setErrorMessage("Please select a valid date range");
+        }
         setIsLoading(false);
     };
 
