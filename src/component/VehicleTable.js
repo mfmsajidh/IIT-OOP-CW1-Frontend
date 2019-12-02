@@ -12,24 +12,41 @@ export const VehicleTable = (props) => {
             {title: 'Model', field: 'model'}
         ],
         motorbikeDetails: [
-            {title: 'Bike Type', field: 'bikeType'},
+            {
+                title: 'Bike Type',
+                field: 'bikeType',
+                lookup: {
+                    R: 'Racing',
+                    S: 'Scooter',
+                    T: 'Trailer'
+                }
+            },
             {
                 title: 'Is Helmet Provided',
                 field: 'helmetProvided',
                 lookup: {
-                    Yes: 'Yes',
-                    No: 'No'
+                    Y: 'Yes',
+                    N: 'No'
                 },
             }
         ],
         carDetails: [
-            {title: 'Number of Doors', field: 'numberOfDoors', type: 'numeric'},
+            {
+                title: 'Number of Doors',
+                field: 'numberOfDoors',
+                type: 'numeric',
+                lookup: {
+                    2: "Two Door",
+                    4: "Four Door",
+                    6: "Six Door"
+                }
+            },
             {
                 title: 'Is A/C Available',
                 field: 'airConditioning',
                 lookup: {
-                    YES: 'Yes',
-                    NO: 'No'
+                    Y: 'Yes',
+                    N: 'No'
                 }
             }
         ]

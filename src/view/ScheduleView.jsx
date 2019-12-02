@@ -81,11 +81,12 @@ export const ScheduleView = (props) => {
                         <Button variant="contained" color="primary" className={classes.button} onClick={props.handleSearchForVehicles}>
                             Search vehicles
                         </Button>
+                    </Grid>
+                    <Grid container justify="space-evenly">
                         {
-                            props.errorMessage!=null ?
-                                <Typography variant="button" display="block" gutterBottom color={"secondary"}>
-                                    {props.errorMessage}
-                                </Typography> : null
+                            <Typography variant="button" display="block" gutterBottom color={"secondary"}>
+                                {props.errorMessage!=null ? props.errorMessage : null}
+                            </Typography>
                         }
                     </Grid>
                 </Paper>
