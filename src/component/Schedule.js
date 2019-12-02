@@ -41,24 +41,30 @@ export default function Schedule() {
     };
 
     const handleSearchForVehicles = () => {
-        searchVehicleType !== "" ?
-            (
-                axios.get(IP_ADDRESS + PORT_NUMBER + SEARCH_VEHICLES,{
-                    params: {
-                        'fromDate': format(fromDate, 'dd/MM/yyyy'),
-                        'toDate': format(toDate, 'dd/MM/yyyy'),
-                        'vehicleType': searchVehicleType
-                    }
-                })
-                    .then(response => {
-                        console.log(response.data);
-                        setVehicleDetails(response.data);
-                        setSearchedForVehicles(true);
+        const todayDate = new Date(format(new Date(), 'dd/MM/yyyy'));
+        const startDate = new Date(format(fromDate, 'dd/MM/yyyy'));
+        const endDate = new Date(format(toDate, 'dd/MM/yyyy'));
+
+        startDate<=endDate && startDate>=todayDate ? (
+            searchVehicleType !== "" ?
+                (
+                    axios.get(IP_ADDRESS + PORT_NUMBER + SEARCH_VEHICLES, {
+                        params: {
+                            'fromDate': format(fromDate, 'dd/MM/yyyy'),
+                            'toDate': format(toDate, 'dd/MM/yyyy'),
+                            'vehicleType': searchVehicleType
+                        }
                     })
-                    .catch(error => {
-                        setErrorMessage(error.toString())
-                    })
-            ) : setErrorMessage("Please select the vehicle type");
+                        .then(response => {
+                            console.log(response.data);
+                            setVehicleDetails(response.data);
+                            setSearchedForVehicles(true);
+                        })
+                        .catch(error => {
+                            setErrorMessage(error.toString())
+                        })
+                ) : setErrorMessage("Please select a vehicle type")
+        ) : setErrorMessage("Please select a valid date range");
     };
 
     const handleResetSearch = () => {
